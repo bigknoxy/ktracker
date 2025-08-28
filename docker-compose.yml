@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: ktracker-postgres
+    environment:
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: ch@ngeM3!
+      POSTGRES_DB: kTracker
+    ports:
+      - "5555:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
