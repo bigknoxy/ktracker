@@ -27,7 +27,9 @@ const loginSchema = z.object({
 // Register endpoint
 auth.post('/register', zValidator('json', registerSchema), async (c) => {
   try {
+    console.log('Starting registration request');
     const { username, email, password } = c.req.valid('json');
+    console.log('Validated data:', { username, email, password: '[HIDDEN]' });
 
     // Check if user already exists
     const existingUser = await prisma.user.findFirst({

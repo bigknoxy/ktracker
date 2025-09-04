@@ -12,7 +12,12 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "db:seed": "bunx tsx backend/prisma/seed.ts"
+    "db:seed": "bunx tsx backend/prisma/seed.ts",
+    "test:setup": "node test-setup.js",
+    "test:e2e": "npm run test:setup && npm run dev:test & sleep 5 && cd frontend && npm run test:e2e",
+    "test:e2e:ci": "npm run test:setup && npm run dev:test & sleep 5 && cd frontend && npm run test:e2e:ci",
+    "dev:test": "NODE_ENV=test DATABASE_URL='file:/home/josh/projects/kTracker/backend/prisma/test.db' JWT_SECRET='test-jwt-secret' bun index.ts",
+    "test:cleanup": "rm -f backend/prisma/test.db"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.7.2",

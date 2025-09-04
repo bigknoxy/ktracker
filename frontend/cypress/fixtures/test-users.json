@@ -1,0 +1,36 @@
+{
+  "validUser": {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "TestPassword123!"
+  },
+  "edgeCaseUsers": [
+    {
+      "username": "user_with_underscores",
+      "email": "underscores@example.com",
+      "password": "TestPassword123!"
+    },
+    {
+      "username": "user-with-dashes",
+      "email": "dashes@example.com",
+      "password": "TestPassword123!"
+    },
+    {
+      "username": "user123",
+      "email": "numbers@example.com",
+      "password": "TestPassword123!"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "username": "",
+      "email": "invalid",
+      "password": "123"
+    },
+    {
+      "username": "a",
+      "email": "@example.com",
+      "password": "weak"
+    }
+  ]
+}
