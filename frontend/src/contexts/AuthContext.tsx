@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { User } from '../types';
@@ -15,13 +16,13 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const useAuth = () => {
+export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
-};
+}
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -66,10 +67,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setError(response.error || 'Login failed');
         return false;
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
-      return false;
-    } finally {
+      } catch {
+        setError('An unexpected error occurred');
+        return false;
+      } finally {
       setIsLoading(false);
     }
   };
@@ -95,10 +96,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setError(response.error || 'Registration failed');
         return false;
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
-      return false;
-    } finally {
+      } catch {
+        setError('An unexpected error occurred');
+        return false;
+      } finally {
       setIsLoading(false);
     }
   };

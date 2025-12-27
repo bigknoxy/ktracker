@@ -1,3 +1,346 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark *));
+
+@theme {
+
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+
+  --color-sage-50: #f4f7f5;
+  --color-sage-100: #e8efe9;
+  --color-sage-200: #d4e5d8;
+  --color-sage-300: #b0d1b9;
+  --color-sage-400: #8bc9a2;
+  --color-sage-500: #66c08c;
+  --color-sage-600: #4ab67b;
+  --color-sage-700: #3e9966;
+  --color-sage-800: #347c56;
+  --color-sage-900: #2a6349;
+
+  --color-forest-50: #f0fdf4;
+  --color-forest-100: #dcfce7;
+  --color-forest-200: #bbf7d0;
+  --color-forest-300: #86efac;
+  --color-forest-400: #4ade80;
+  --color-forest-500: #22c55e;
+  --color-forest-600: #16a34a;
+  --color-forest-700: #15803d;
+  --color-forest-800: #166534;
+  --color-forest-900: #14532d;
+
+  --color-clay-50: #fdf8f6;
+  --color-clay-100: #f2e8e5;
+  --color-clay-200: #e5d0c8;
+  --color-clay-300: #d4b8ad;
+  --color-clay-400: #c4a194;
+  --color-clay-500: #b3897b;
+  --color-clay-600: #a27262;
+  --color-clay-700: #8f5b49;
+  --color-clay-800: #7d473a;
+  --color-clay-900: #6b362f;
+}
+
+/* Root element backgrounds */
+html {
+  background-color: #fafaf9; /* stone-50 */
+  min-height: 100vh;
+}
+
+html.dark {
+  background-color: var(--color-stone-950); /* Use CSS variable */
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Performance-optimized animations for 60fps */
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-icon {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes toast-progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Performance-optimized animation classes */
+.animate-toast-enter {
+  animation: toast-enter 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-toast-icon {
+  animation: toast-icon 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-toast-progress {
+  animation: toast-progress linear forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 300ms ease-out forwards;
+}
+
+/* GPU acceleration for smooth animations */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* CSS variables for consistent animation timing */
+:root {
+  --animation-duration: 300ms;
+  --animation-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animation-slow: 500ms;
+  --animation-fast: 150ms;
+}
+
+/* Optimized transitions for components */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: var(--animation-easing);
+  transition-duration: var(--animation-duration);
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: var(--animation-easing);
+  transition-duration: var(--animation-duration);
+}
+
+.transform-scale-105 {
+  transform: scale(1.05);
+}
+
+.transform-scale-95 {
+  transform: scale(0.95);
+}
+
+.transform-translate-y-1 {
+  transform: translateY(-4px);
+}
+
+.transform-translate-y-0 {
+  transform: translateY(0);
+}
+
+/* Hover effects with optimized performance */
+.hover-scale-105:hover {
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.hover-translate-y-1:hover {
+  transform: translateY(-4px);
+  will-change: transform;
+}
+
+/* Focus ring optimization */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 0 6px rgba(59, 130, 246, 0.05);
+}
+
+/* Focus ring expand animation */
+@keyframes focus-ring-expand {
+  0% {
+    box-shadow: 0 0 0 0px rgba(99, 102, 241, 0), 0 0 0 0px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), 0 0 0 8px rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* Focus ring pulse animation for initial focus */
+@keyframes focus-ring-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), 0 0 0 8px rgba(99, 102, 241, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.3), 0 0 0 12px rgba(99, 102, 241, 0.15);
+  }
+}
+
+/* Focus ring shrink animation on blur */
+@keyframes focus-ring-shrink {
+  0% {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), 0 0 0 8px rgba(99, 102, 241, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(99, 102, 241, 0), 0 0 0 0px rgba(99, 102, 241, 0);
+  }
+}
+
+/* Green focus ring for workouts */
+@keyframes focus-ring-expand-green {
+  0% {
+    box-shadow: 0 0 0 0px rgba(34, 197, 94, 0), 0 0 0 0px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2), 0 0 0 8px rgba(34, 197, 94, 0.1);
+  }
+}
+
+@keyframes focus-ring-pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2), 0 0 0 8px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3), 0 0 0 12px rgba(34, 197, 94, 0.15);
+  }
+}
+
+/* Purple focus ring for tasks */
+@keyframes focus-ring-expand-purple {
+  0% {
+    box-shadow: 0 0 0 0px rgba(168, 85, 247, 0), 0 0 0 0px rgba(168, 85, 247, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2), 0 0 0 8px rgba(168, 85, 247, 0.1);
+  }
+}
+
+@keyframes focus-ring-pulse-purple {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2), 0 0 0 8px rgba(168, 85, 247, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.3), 0 0 0 12px rgba(168, 85, 247, 0.15);
+  }
+}
+
+/* Sage focus ring for auth pages */
+@keyframes focus-ring-expand-sage {
+  0% {
+    box-shadow: 0 0 0 0px rgba(132, 204, 22, 0), 0 0 0 0px rgba(132, 204, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.2), 0 0 0 8px rgba(132, 204, 22, 0.1);
+  }
+}
+
+@keyframes focus-ring-pulse-sage {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.2), 0 0 0 8px rgba(132, 204, 22, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(132, 204, 22, 0.3), 0 0 0 12px rgba(132, 204, 22, 0.15);
+  }
+}
+
+/* Animated focus ring utility classes */
+.animate-focus-ring-expand {
+  animation: focus-ring-expand 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-pulse {
+  animation: focus-ring-pulse 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-shrink {
+  animation: focus-ring-shrink 200ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Color-specific animated focus rings */
+.animate-focus-ring-expand-green {
+  animation: focus-ring-expand-green 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-pulse-green {
+  animation: focus-ring-pulse-green 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-expand-purple {
+  animation: focus-ring-expand-purple 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-pulse-purple {
+  animation: focus-ring-pulse-purple 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-expand-sage {
+  animation: focus-ring-expand-sage 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-focus-ring-pulse-sage {
+  animation: focus-ring-pulse-sage 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Shake animation for error messages */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-focus-ring-expand,
+  .animate-focus-ring-pulse,
+  .animate-focus-ring-shrink,
+  .animate-focus-ring-expand-green,
+  .animate-focus-ring-pulse-green,
+  .animate-focus-ring-expand-purple,
+  .animate-focus-ring-pulse-purple,
+  .animate-focus-ring-expand-sage,
+  .animate-focus-ring-pulse-sage,
+  .animate-shake {
+    animation: none;
+  }
+}

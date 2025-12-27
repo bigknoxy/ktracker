@@ -1,69 +1,30 @@
-# React + TypeScript + Vite
+# kTracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## UI Modernization Features
 
-Currently, two official plugins are available:
+This application features a modern, responsive UI built with React, TypeScript, Vite, and Tailwind CSS. Key UI features include:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dark Mode:** Toggle between light and dark themes using the ThemeToggle button. Theme state is persisted and uses Tailwind's dark mode classes.
+- **Mobile Bottom Navigation:** A fixed, mobile-only BottomNav provides quick access to Dashboard, Weight, Workouts, and Tasks sections.
+- **Responsive Layouts:** All major components use Tailwind responsive classes for optimal experience on mobile, tablet, and desktop.
+- **Smooth Transitions:** Section changes and major UI elements use fade-in transitions for a polished feel.
+- **Skeleton Loaders:** Loading states use animated skeleton loaders for cards, lists, and charts, improving perceived performance.
 
-## Expanding the ESLint configuration
+## Main UI Components
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `ThemeToggle.tsx`: Button to toggle dark/light mode.
+- `BottomNav.tsx`: Mobile navigation bar for quick section switching.
+- `WeightSection.tsx`: Main weight tracking interface, includes form, list, and chart.
+- `WeightForm.tsx`: Add new weight entry.
+- `WeightList.tsx`: List of recent weight entries.
+- `WeightChart.tsx`: Chart of weight trends over time.
+- `SkeletonLoader.tsx`: Reusable animated skeleton loader for loading states.
+- `ThemeContext.tsx`: Provides theme state and persistence.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Design System
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Built with Tailwind CSS utility classes for rapid development and easy theming.
+- Uses React context for global state (theme).
+- All components are mobile-first and support dark mode.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+See `thoughts/architecture/design_document.md` for architectural details and design decisions.

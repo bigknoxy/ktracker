@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "agents": {
+    "ui-ux-expert": {
+      "path": "agents/ui-ux-expert.json",
+      "enabled": true,
+      "description": "Expert UI/UX designer specialized in visual design, manual testing, and user experience optimization",
+      "model": "google/gemini-2.0-flash-exp:free",
+      "priority": "high",
+      "auto_trigger": true
+    }
+  },
+  "triggers": {
+    "visual_testing": {
+      "description": "Trigger UI/UX expert for any visual or manual testing",
+      "patterns": [
+        "visual test",
+        "manual test",
+        "design review",
+        "UI inspection",
+        "chrome devtools"
+      ]
+    },
+    "design_improvements": {
+      "description": "Trigger for design and UX improvements",
+      "patterns": [
+        "improve design",
+        "better UX",
+        "component design",
+        "reusable components",
+        "visual consistency"
+      ]
+    }
+  }
+}

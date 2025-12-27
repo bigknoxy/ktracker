@@ -37,42 +37,53 @@ class ApiService {
     );
   }
 
-  // Helper method to extract error messages from various error formats
-  private extractErrorMessage(error: any): string {
-    if (error.response?.data?.error) {
-      const errorData = error.response.data.error;
+  private extractErrorMessage(error: unknown): string {
+    type ErrorResponse = {
+      response?: {
+        data?: {
+          error?: {
+            name?: string;
+            message?: string;
+          } | string;
+        };
+        status?: number;
+      };
+    };
 
-      // Handle ZodError objects from backend validation
-      if (errorData.name === 'ZodError') {
-        // The message field contains a JSON string that needs to be parsed
-        if (typeof errorData.message === 'string') {
-          try {
-            // Parse the JSON string to get the array of error objects
-            const errorArray = JSON.parse(errorData.message);
-            if (Array.isArray(errorArray)) {
-              const messages = errorArray
-                .filter((err: any) => err && err.message)
-                .map((err: any) => err.message);
-              if (messages.length > 0) {
-                return messages.join(', ');
+    if (error && typeof error === 'object' && 'response' in error) {
+      const err = error as ErrorResponse;
+
+      if (err.response?.data?.error) {
+        const errorData = err.response.data.error;
+
+        if (typeof errorData === 'object' && errorData !== null && 'name' in errorData && errorData.name === 'ZodError') {
+          if ('message' in errorData && typeof errorData.message === 'string') {
+            try {
+              const errorArray = JSON.parse(errorData.message);
+              if (Array.isArray(errorArray)) {
+                const messages = errorArray
+                  .filter((err: { message?: string }) => err && err.message)
+                  .map((err: { message?: string }) => err.message);
+                if (messages.length > 0) {
+                  return messages.join(', ');
+                }
               }
+            } catch (parseError) {
+              console.warn('Failed to parse ZodError message:', parseError);
             }
-          } catch (parseError) {
-            console.warn('Failed to parse ZodError message:', parseError);
           }
+        } else if (typeof errorData === 'string') {
+          return errorData;
+        } else if (typeof errorData === 'object' && errorData !== null && 'message' in errorData && typeof errorData.message === 'string') {
+          return errorData.message;
         }
-      } else if (typeof errorData === 'string') {
-        return errorData;
-      } else if (errorData.message) {
-        return errorData.message;
       }
-    }
 
-    // Fallback error messages
-    if (error.response?.status === 400) return 'Invalid request data';
-    if (error.response?.status === 401) return 'Authentication failed';
-    if (error.response?.status === 409) return 'User already exists';
-    if (error.response?.status === 500) return 'Server error occurred';
+      if (err.response?.status === 400) return 'Invalid request data';
+      if (err.response?.status === 401) return 'Authentication failed';
+      if (err.response?.status === 409) return 'User already exists';
+      if (err.response?.status === 500) return 'Server error occurred';
+    }
 
     return 'An unexpected error occurred';
   }
@@ -82,7 +93,7 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.post('/auth/login', { email, password });
       return { data: response.data };
-    } catch (error: any) {
+    } catch (error: unknown) {
       return { error: this.extractErrorMessage(error) };
     }
   }
@@ -91,7 +102,7 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.post('/auth/register', { username, email, password });
       return { data: response.data };
-    } catch (error: any) {
+    } catch (error: unknown) {
       return { error: this.extractErrorMessage(error) };
     }
   }
@@ -103,8 +114,8 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.get('/users/me');
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to get profile' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) };
     }
   }
 
@@ -112,8 +123,8 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.put('/users/me', updates);
       return { data: response.data.user };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to update profile' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to update profile' };
     }
   }
 
@@ -122,8 +133,8 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.get('/weight');
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to get weight entries' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to get weight entries' };
     }
   }
 
@@ -131,8 +142,8 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.post('/weight', { weight, date });
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to add weight entry' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to add weight entry' };
     }
   }
 
@@ -140,8 +151,8 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.put(`/weight/${id}`, { weight, date });
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to update weight entry' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to update weight entry' };
     }
   }
 
@@ -149,8 +160,8 @@ class ApiService {
     try {
       await this.api.delete(`/weight/${id}`);
       return { data: undefined };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to delete weight entry' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to delete weight entry' };
     }
   }
 
@@ -159,26 +170,26 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.get('/workouts');
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to get workouts' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to get workouts' };
     }
   }
 
-  async addWorkout(workout: any): Promise<ApiResponse<Workout>> {
+  async addWorkout(workout: { date: string; duration: number; exercises: Array<{ exerciseId: number; sets: number; reps: number; weight: number }> }): Promise<ApiResponse<Workout>> {
     try {
       const response: AxiosResponse = await this.api.post('/workouts', workout);
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to add workout' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to add workout' };
     }
   }
 
-  async updateWorkout(id: number, workout: any): Promise<ApiResponse<Workout>> {
+  async updateWorkout(id: number, workout: { date: string; duration: number; exercises: Array<{ exerciseId: number; sets: number; reps: number; weight: number }> }): Promise<ApiResponse<Workout>> {
     try {
       const response: AxiosResponse = await this.api.put(`/workouts/${id}`, workout);
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to update workout' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) };
     }
   }
 
@@ -186,8 +197,8 @@ class ApiService {
     try {
       await this.api.delete(`/workouts/${id}`);
       return { data: undefined };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to delete workout' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to delete workout' };
     }
   }
 
@@ -196,26 +207,26 @@ class ApiService {
     try {
       const response: AxiosResponse = await this.api.get('/tasks');
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to get tasks' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to get tasks' };
     }
   }
 
-  async addTask(task: any): Promise<ApiResponse<Task>> {
+  async addTask(task: { title: string; description?: string; dueDate?: string; priority: 'low' | 'medium' | 'high' }): Promise<ApiResponse<Task>> {
     try {
       const response: AxiosResponse = await this.api.post('/tasks', task);
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to add task' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to add task' };
     }
   }
 
-  async updateTask(id: number, task: any): Promise<ApiResponse<Task>> {
+  async updateTask(id: number, task: { title?: string; description?: string; dueDate?: string; priority?: 'low' | 'medium' | 'high'; completed?: boolean }): Promise<ApiResponse<Task>> {
     try {
       const response: AxiosResponse = await this.api.put(`/tasks/${id}`, task);
       return { data: response.data };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to update task' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to update task' };
     }
   }
 
@@ -223,8 +234,8 @@ class ApiService {
     try {
       await this.api.delete(`/tasks/${id}`);
       return { data: undefined };
-    } catch (error: any) {
-      return { error: error.response?.data?.error || 'Failed to delete task' };
+    } catch (error: unknown) {
+      return { error: this.extractErrorMessage(error) || 'Failed to delete task' };
     }
   }
 }

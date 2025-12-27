@@ -36,6 +36,23 @@ Security requirements:
 
 # DESIGN
 
+## UI Modernization (2025-09)
+
+The frontend UI was modernized to improve usability, accessibility, and aesthetics:
+
+- **Dark Mode:** Implemented via Tailwind's dark mode and a global ThemeContext. Users can toggle dark/light themes, with state persisted in localStorage.
+- **Mobile Navigation:** Added a fixed BottomNav for mobile users, providing quick access to all main sections. Desktop navigation remains in the header.
+- **Responsive Layouts:** All major components use Tailwind responsive classes for optimal experience across devices. Layouts stack and space appropriately for mobile, tablet, and desktop.
+- **Smooth Transitions:** Section changes and key UI elements use fade-in transitions for a polished, modern feel.
+- **Skeleton Loaders:** Loading states use animated skeleton loaders for cards, lists, and charts, improving perceived performance and user experience.
+
+### Component Patterns
+- Theme state is managed globally via React context (`ThemeContext.tsx`).
+- Navigation state is managed in the main page (`Dashboard.tsx`) and passed to navigation components.
+- Skeleton loaders are reusable and parameterized for different loading scenarios.
+- All components are mobile-first and support dark mode.
+
+
 ## C4 CONTEXT
 
 ```mermaid

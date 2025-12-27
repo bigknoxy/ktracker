@@ -51,6 +51,8 @@ export interface Task {
   dueDate: string | null;
   priority: 'low' | 'medium' | 'high';
   completed: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 // API Response types

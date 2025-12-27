@@ -1,0 +1,378 @@
+/* Accessibility CSS-in-JS Styles for kTracker */
+/* WCAG 2.1 AA Compliant Styles */
+
+/* High Contrast Focus Indicators */
+.accessible-focus {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.3s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Focus Visible Polyfill */
+.focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+  .btn-secondary {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+
+  .text-primary {
+    color: #000 !important;
+  }
+
+  .bg-surface {
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  .animate-spin {
+    animation: none !important;
+  }
+}
+
+/* Large Text Support */
+@media (prefers-font-size: large) {
+  .text-sm { font-size: 1rem; }
+  .text-base { font-size: 1.125rem; }
+  .text-lg { font-size: 1.25rem; }
+  .text-xl { font-size: 1.5rem; }
+}
+
+/* High Contrast Colors for Interactive Elements */
+.accessible-btn {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accessible-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.accessible-btn:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Form Input Accessibility */
+.accessible-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  transition: border-color 0.2s ease;
+}
+
+.accessible-input:focus {
+  border-color: #3b82f6;
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.accessible-input.error {
+  border-color: #ef4444;
+  outline: 3px solid #ef4444;
+  outline-offset: 2px;
+}
+
+/* Error Message Styling */
+.accessible-error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accessible-error::before {
+  content: "⚠️";
+  font-size: 16px;
+}
+
+/* Success Message Styling */
+.accessible-success {
+  color: #16a34a;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accessible-success::before {
+  content: "✅";
+  font-size: 16px;
+}
+
+/* ARIA Live Region Styles */
+[aria-live="polite"] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+[aria-live="assertive"] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font-weight: bold;
+  color: #ef4444;
+}
+
+/* Tab Navigation Accessibility */
+.tab-list {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tab-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  position: relative;
+}
+
+.tab-item[aria-selected="true"] {
+  color: #1f2937;
+  border-bottom: 3px solid #3b82f6;
+}
+
+.tab-item:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Modal Overlay Accessibility */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content:focus {
+  outline: none;
+}
+
+/* List Item Accessibility */
+.list-item {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.list-item:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+  background-color: #eff6ff;
+}
+
+/* Loading States */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Print Styles for Accessibility */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .btn, .nav, .sidebar {
+    display: none;
+  }
+}
+
+/* Dark Mode Accessibility */
+@media (prefers-color-scheme: dark) {
+  .accessible-btn {
+    background-color: #1f2937;
+    color: #fff;
+    border: 2px solid #6b7280;
+  }
+
+  .accessible-btn:hover {
+    background-color: #374151;
+    border-color: #9ca3af;
+  }
+
+  .accessible-input {
+    background-color: #1f2937;
+    color: #fff;
+    border-color: #374151;
+  }
+
+  .accessible-input:focus {
+    border-color: #60a5fa;
+  }
+}
+
+/* Touch Target Sizes (Minimum 44px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Color Blindness Support */
+.color-blind-friendly {
+  /* Use patterns and textures in addition to color */
+}
+
+.color-blind-red { color: #dc2626; }
+.color-blind-blue { color: #2563eb; }
+.color-blind-green { color: #16a34a; }
+.color-blind-yellow { color: #eab308; }
+
+/* High Contrast Text */
+.high-contrast-text {
+  color: #000;
+  background-color: #fff;
+  font-weight: 600;
+}
+
+/* Speech Recognition Friendly */
+.speech-friendly {
+  /* Use clear, descriptive labels */
+}
+
+/* Keyboard Navigation Support */
+.keyboard-nav {
+  /* Ensure logical tab order */
+}
+
+/* Screen Reader Announcements */
+.announcement {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
