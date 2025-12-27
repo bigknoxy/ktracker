@@ -4,6 +4,25 @@ import type { ReactNode } from 'react';
 import type { User } from '../types';
 import { apiService } from '../services/api';
 
+/**
+ * AuthContext - Authentication state and methods
+ *
+ * @description
+ * Manages user authentication including login, logout, registration.
+ * Provides user data and auth methods to child components.
+ *
+ * @property {User | null} user - Currently authenticated user
+ * @property {boolean} isLoading - Auth loading state
+ * @property {string | null} token - JWT authentication token
+ * @property {string | null} error - Auth error message
+ * @property {(email: string, password: string) => Promise<boolean>} login - Login function
+ * @property {(username: string, email: string, password: string) => Promise<boolean>} register - Register function
+ * @property {() => void} logout - Logout function
+ *
+ * @author kTracker Team
+ * @since 0.1.0
+ */
+
 interface AuthContextType {
   user: User | null;
   token: string | null;

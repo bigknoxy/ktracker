@@ -3,6 +3,23 @@ import { useTheme } from '../contexts/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
 import { useFocusVisible, useScreenReader } from '../utils/accessibility';
 
+/**
+ * ThemeToggle - Theme switcher button
+ *
+ * @description
+ * Renders a toggle button to switch between light and dark themes.
+ * Integrates with ThemeContext to update application's theme.
+ *
+ * @example
+ * ```tsx
+ * <ThemeToggle />
+ * ```
+ *
+ * @returns {JSX.Element} The rendered theme toggle button
+ *
+ * @author kTracker Team
+ * @since 0.1.0
+ */
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
