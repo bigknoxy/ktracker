@@ -1,1 +1,21 @@
 node_modules/
+.env
+*.tsbuildinfo
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Test/validation screenshots
+*.png
+*.jpeg
+*.jpg
+*.gif
+theme_test*.png
+validation*.png
+*.mp4

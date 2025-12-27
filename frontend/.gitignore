@@ -22,3 +22,26 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cypress test outputs
+cypress/screenshots/
+cypress/videos/
+
+# Build info
+*.tsbuildinfo
+
+# Env files
+.env
+
+# Test/validation screenshots
+theme_test*.png
+validation*.png
+ui_test.png
+mobile_test.png
+login_page.png
+screenshot.png
+page-full.png
+element-bg-stone.png
+head-overlay*.png
+dashboard-full.png
+final_validation*.png

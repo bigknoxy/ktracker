@@ -1,5 +1,9 @@
 node_modules
 # Keep environment variables out of version control
 .env
-
+*.db
 /generated/prisma
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
