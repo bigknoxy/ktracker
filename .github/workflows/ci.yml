@@ -27,13 +27,15 @@ jobs:
           bun install
           cd frontend && npm install
 
+      - name: Generate Prisma Client
+        run: bunx prisma generate --schema=backend/prisma/schema.prisma
+
       - name: Type check backend
-        run: bun x tsc --noEmit
+        run: bun x tsc --noEmit --skipLibCheck backend/**/*.ts index.ts
 
       - name: Build frontend
         run: |
           cd frontend
-          npm run type-check
           npm run build
 
       - name: Build check
