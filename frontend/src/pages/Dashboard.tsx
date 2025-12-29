@@ -70,11 +70,11 @@ const Dashboard: React.FC = () => {
       <header className="bg-white dark:bg-stone-900 shadow-soft-inset border-b border-stone-200/50 dark:border-stone-800/50 sticky top-0 z-40 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-             <div className="flex items-center gap-3">
-               <h1 className="text-2xl font-bold bg-gradient-to-r from-sage-600 to-forest-600 bg-clip-text text-transparent tracking-tight">
-                 kTracker
-               </h1>
-               <ThemeToggle />
+             <div className="flex items-center gap-4">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-sage-600 to-forest-600 bg-clip-text text-transparent tracking-tight">
+                  kTracker
+                </h1>
+                <ThemeToggle />
              </div>
             <div className="flex items-center space-x-4">
               <nav className="hidden md:flex space-x-8">

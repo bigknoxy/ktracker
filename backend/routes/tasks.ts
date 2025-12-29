@@ -13,7 +13,7 @@ console.log('Tasks routes loaded!');
 const taskSchema = z.object({
   title: z.string().min(1).max(200),
   description: z.string().optional(),
-  dueDate: z.string().datetime().optional(),
+  dueDate: z.string().datetime().optional().nullable(),
   priority: z.enum(['low', 'medium', 'high']).default('medium'),
   completed: z.boolean().default(false),
 });

@@ -45,26 +45,26 @@ const ThemeToggle: React.FC = () => {
   // WCAG 2.1 AA compliant color contrast classes
   const getButtonClasses = () => {
     const baseClasses = `
-      ml-2 px-4 py-2.5 rounded-lg transition-all duration-200 ease-soft
-      border-2 font-medium tracking-tight text-sm
-      focus:outline-none focus:ring-4 focus:ring-offset-2
-      focus:ring-blue-500 focus:ring-offset-white dark:focus:ring-offset-gray-900
+      ml-2 p-2 rounded-full transition-all duration-200 ease-soft
+      border font-medium
+      focus:outline-none focus:ring-2 focus:ring-offset-1
+      focus:ring-sage-500 focus:ring-offset-white dark:focus:ring-offset-stone-900
       hover:scale-105 active:scale-95
     `;
 
     if (theme === 'dark') {
       return `
         ${baseClasses}
-        bg-gray-800 hover:bg-gray-700 border-gray-700 hover:border-gray-600
-        text-gray-100 hover:text-white
-        shadow-lg shadow-gray-900/20
+        bg-stone-800/80 hover:bg-stone-700/90 border-stone-700/40 hover:border-stone-600/50
+        text-stone-200 hover:text-stone-100
+        shadow-sm shadow-stone-900/10
       `;
     } else {
       return `
         ${baseClasses}
-        bg-white hover:bg-gray-50 border-gray-200 hover:border-gray-300
-        text-gray-900 hover:text-gray-800
-        shadow-md shadow-gray-200/50
+        bg-stone-100/50 hover:bg-stone-200/70 border-stone-200/40 hover:border-stone-300/50
+        text-stone-700 hover:text-stone-800
+        shadow-sm shadow-stone-400/5
       `;
     }
   };
@@ -89,30 +89,22 @@ const ThemeToggle: React.FC = () => {
         outlineOffset: isUsingKeyboard ? '2px' : '0'
       }}
     >
-      <div className="flex items-center gap-3">
-        <div className="flex items-center justify-center w-6 h-6 rounded-md bg-opacity-20 transition-all duration-200">
-          {theme === 'dark' ? (
-            <Moon
-              size={18}
-              className="text-yellow-300 drop-shadow-sm"
-              aria-hidden="true"
-            />
-          ) : (
-            <Sun
-              size={18}
-              className="text-orange-500 drop-shadow-sm"
-              aria-hidden="true"
-            />
-          )}
-        </div>
-        <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
-        <span className="hidden sm:inline">
-          {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-        </span>
-        <span className="text-xs opacity-75 hidden sm:inline">
-          {theme === 'dark' ? '🌙' : '☀️'}
-        </span>
+      <div className="flex items-center justify-center">
+        {theme === 'dark' ? (
+          <Moon
+            size={18}
+            className="text-stone-200 drop-shadow-sm transition-transform duration-200"
+            aria-hidden="true"
+          />
+        ) : (
+          <Sun
+            size={18}
+            className="text-stone-600 drop-shadow-sm transition-transform duration-200"
+            aria-hidden="true"
+          />
+        )}
       </div>
+      <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
     </button>
   );
 };
