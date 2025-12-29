@@ -361,28 +361,6 @@ const WeightForm: React.FC<WeightFormProps> = ({ onSuccess, onCancel }) => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`group relative bg-gradient-to-r from-sage-600 to-sage-700 py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white transition-all duration-300 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-sage-500 focus:ring-offset-white dark:focus:ring-offset-stone-800 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 ${
-              isSubmitting ? 'opacity-75 cursor-wait' : ''
-            }`}
-            aria-label={isSubmitting ? 'Adding weight entry...' : 'Add weight entry'}
-            aria-busy={isSubmitting}
-            style={{
-              ...(prefersReducedMotion ? { transition: 'none' } : {}),
-              outline: isUsingKeyboard ? '2px solid #4da78a' : 'none',
-              outlineOffset: isUsingKeyboard ? '2px' : '0'
-            }}
-          >
-            <span className="flex items-center justify-center space-x-2">
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              <span>Cancel</span>
-            </span>
-          </button>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
             className={`group relative bg-gradient-to-r from-indigo-600 to-purple-600 py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white transition-all duration-300 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-white dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 ${
               isSubmitting ? 'opacity-75 cursor-wait' : ''
             }`}
