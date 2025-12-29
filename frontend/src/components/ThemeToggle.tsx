@@ -45,8 +45,8 @@ const ThemeToggle: React.FC = () => {
   // WCAG 2.1 AA compliant color contrast classes
   const getButtonClasses = () => {
     const baseClasses = `
-      ml-2 px-3 py-2 rounded-full transition-all duration-200 ease-soft
-      border font-medium tracking-tight text-sm
+      ml-2 p-2 rounded-full transition-all duration-200 ease-soft
+      border font-medium
       focus:outline-none focus:ring-2 focus:ring-offset-1
       focus:ring-sage-500 focus:ring-offset-white dark:focus:ring-offset-stone-900
       hover:scale-105 active:scale-95
@@ -89,30 +89,22 @@ const ThemeToggle: React.FC = () => {
         outlineOffset: isUsingKeyboard ? '2px' : '0'
       }}
     >
-       <div className="flex items-center gap-3">
-        <div className="flex items-center justify-center w-6 h-6 transition-all duration-200">
-          {theme === 'dark' ? (
-            <Moon
-              size={18}
-              className="text-stone-200 drop-shadow-sm transition-transform duration-200"
-              aria-hidden="true"
-            />
-          ) : (
-            <Sun
-              size={18}
-              className="text-stone-600 drop-shadow-sm transition-transform duration-200"
-              aria-hidden="true"
-            />
-          )}
-        </div>
-        <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
-        <span className="hidden sm:inline">
-          {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-        </span>
-        <span className="text-xs opacity-75 hidden sm:inline">
-          {theme === 'dark' ? '🌙' : '☀️'}
-        </span>
+      <div className="flex items-center justify-center">
+        {theme === 'dark' ? (
+          <Moon
+            size={18}
+            className="text-stone-200 drop-shadow-sm transition-transform duration-200"
+            aria-hidden="true"
+          />
+        ) : (
+          <Sun
+            size={18}
+            className="text-stone-600 drop-shadow-sm transition-transform duration-200"
+            aria-hidden="true"
+          />
+        )}
       </div>
+      <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
     </button>
   );
 };
