@@ -1,0 +1,82 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v4.5.3  ready in 398 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+6:52:56 PM [vite] hmr update /src/components/ThemeToggle.tsx, /src/index.css
+6:53:44 PM [vite] hmr update /src/components/ThemeToggle.tsx, /src/index.css
+6:53:45 PM [vite] Internal server error: /home/josh/projects/kTracker/frontend/src/components/ThemeToggle.tsx: Expected corresponding JSX closing tag for <button>. (108:8)
+
+  106 |         </div>
+  107 |         <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
+> 108 |         </div>
+      |         ^
+  109 |         <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
+  110 |       </div>
+  111 |     </button>
+  Plugin: vite:react-babel
+  File: /home/josh/projects/kTracker/frontend/src/components/ThemeToggle.tsx:108:8
+  106|          </div>
+  107|          <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
+  108|          </div>
+     |          ^
+  109|          <span className="sr-only">{theme === 'dark' ? 'Current: Dark mode' : 'Current: Light mode'}</span>
+  110|        </div>
+      at constructor (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:4760:16)
+      at TypeScriptParserMixin.jsxParseElement (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:4782:17)
+      at TypeScriptParserMixin.parseExprAtom (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:4792:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10831:21)
+      at /home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9795:39
+      at TypeScriptParserMixin.tryParse (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:6938:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9795:18)
+      at /home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10800:39
+      at TypeScriptParserMixin.allowInAnd (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12432:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10800:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12499:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11679:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11331:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9857:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10831:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9806:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10784:23)
+      at /home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10780:39
+      at TypeScriptParserMixin.allowInAnd (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12427:16)
+      at TypeScriptParserMixin.parseExpression (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:10780:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:13147:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12803:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:9532:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12772:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12752:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:13321:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:13314:10)
+      at TypeScriptParserMixin.parseBlock (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:13302:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12106:24)
+      at TypeScriptParserMixin.parseArrowExpression (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:12081:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11691:12)
+      at TypeScriptParserMixin.parseExprAtom (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11331:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/josh/projects/kTracker/frontend/node_modules/@babel/parser/lib/index.js:11081:23)
+6:54:07 PM [vite] hmr update /src/components/ThemeToggle.tsx, /src/index.css
+6:54:31 PM [vite] hmr update /src/pages/Dashboard.tsx, /src/index.css
+7:49:24 PM [vite] hmr update /src/components/WeightForm.tsx, /src/index.css
+Killed

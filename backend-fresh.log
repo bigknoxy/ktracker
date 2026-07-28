@@ -1,0 +1,191 @@
+Users routes loaded!
+Weight routes loaded!
+Workouts routes loaded!
+Tasks routes loaded!
+Started development server: http://localhost:3000
+<-- POST /api/auth/login
+Login error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:89:36
+
+  86 const { email, password } = c.req.valid('json');
+  87 
+  88 // Find user
+→ 89 const user = await prisma.user.findUnique(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/login [31m500[0m 62ms
+<-- POST /api/auth/login
+Login error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:89:36
+
+  86 const { email, password } = c.req.valid('json');
+  87 
+  88 // Find user
+→ 89 const user = await prisma.user.findUnique(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/login [31m500[0m 9ms
+<-- POST /api/auth/register
+Starting registration request
+Validated data: {
+  username: "bob123",
+  email: "bob123@bob.com",
+  password: "[HIDDEN]",
+}
+Registration error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findFirst()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:35:44
+
+  32 console.log('Validated data:', { username, email, password: '[HIDDEN]' });
+  33 
+  34 // Check if user already exists
+→ 35 const existingUser = await prisma.user.findFirst(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/register [31m500[0m 6ms
+<-- POST /api/auth/register
+Starting registration request
+Validated data: {
+  username: "bob123",
+  email: "bob123@bob.com",
+  password: "[HIDDEN]",
+}
+Registration error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findFirst()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:35:44
+
+  32 console.log('Validated data:', { username, email, password: '[HIDDEN]' });
+  33 
+  34 // Check if user already exists
+→ 35 const existingUser = await prisma.user.findFirst(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/register [31m500[0m 6ms
+<-- POST /api/auth/register
+Starting registration request
+Validated data: {
+  username: "bob123",
+  email: "bob123@bob.com",
+  password: "[HIDDEN]",
+}
+Registration error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findFirst()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:35:44
+
+  32 console.log('Validated data:', { username, email, password: '[HIDDEN]' });
+  33 
+  34 // Check if user already exists
+→ 35 const existingUser = await prisma.user.findFirst(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/register [31m500[0m 7ms
+<-- POST /api/auth/register
+Starting registration request
+Validated data: {
+  username: "bob123",
+  email: "bob123@bob.com",
+  password: "[HIDDEN]",
+}
+Registration error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientInitializationError: 
+Invalid `prisma.user.findFirst()` invocation in
+/home/josh/projects/kTracker/backend/routes/auth.ts:35:44
+
+  32 console.log('Validated data:', { username, email, password: '[HIDDEN]' });
+  33 
+  34 // Check if user already exists
+→ 35 const existingUser = await prisma.user.findFirst(
+Error querying the database: Error code 14: Unable to open the database file
+ clientVersion: "6.14.0",
+  errorCode: undefined,
+  retryable: undefined,
+
+      at new PrismaClientInitializationError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:995)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7583)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/auth/register [31m500[0m 5ms

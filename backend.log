@@ -1,0 +1,89 @@
+Users routes loaded!
+Weight routes loaded!
+Workouts routes loaded!
+Tasks routes loaded!
+Started development server: http://localhost:3000
+<-- GET /health
+--> GET /health [32m200[0m 1ms
+<-- GET /api/weight
+<-- GET /api/workouts
+<-- GET /api/tasks
+--> GET /api/weight [32m200[0m 61ms
+--> GET /api/tasks [32m200[0m 25ms
+--> GET /api/workouts [32m200[0m 31ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 1ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- POST /api/tasks
+Create task error: 19 | `)}
+20 | 
+21 | We suggest to move the contents of ${Y(l)} to ${Y(a)} to consolidate your env vars.
+22 | `;throw new Error(u)}else if(t==="warn"){let u=`Conflict for env var${s.length>1?"s":""} ${s.map(c=>W(c)).join(", ")} in ${Y(a)} and ${Y(l)}
+23 | Env vars from ${Y(l)} overwrite the ones from ${Y(a)}
+24 |       `;console.warn(`${Ie("warn(prisma)")} ${u}`)}}}}function _s(e){if(xp(e)){$i(`Environment variables loaded from ${e}`);let r=qi.default.config({path:e,debug:process.env.DOTENV_CONFIG_DEBUG?!0:void 0});return{dotenvResult:ks(r),message:Ce(`Environment variables loaded from ${wr.default.relative(process.cwd(),e)}`),path:e}}else $i(`Environment variables not found at ${e}`);return null}function Ns(e,r){return e&&r&&wr.default.resolve(e)===wr.default.resolve(r)}function xp(e){return!!(e&&ln.default.existsSync(e))}function Vi(e,r){return Object.prototype.hasOwnProperty.call(e,r)}function cn(e,r){let t={};for(let n of Object.keys(e))t[n]=r(e[n],n);return t}function ji(e,r){if(e.length===0)return;let t=e[0];for(let n=1;n<e.length;n++)r(t,e[n])<0&&(t=e[n]);return t}function x(e,r){Object.defineProperty(e,"name",{value:r,configurable:!0})}var Fs=new Set,st=(e,r,...t)=>{Fs.has(e)||(Fs.add(e),_i(r,...t))};var v=class e extends Error{clientVersion;errorCode;retryable;constructor(r,t,n){super(r),this.name="PrismaClie
+
+PrismaClientKnownRequestError: 
+Invalid `prisma.task.create()` invocation in
+/home/josh/projects/kTracker/backend/routes/tasks.ts:48:36
+
+  45 const user = (c as any).user as { userId: number; email: string };
+  46 const taskData = c.req.valid('json');
+  47 
+→ 48 const task = await prisma.task.create(
+Foreign key constraint violated on the foreign key
+       meta: {
+  modelName: "Task",
+  constraint: null,
+},
+ clientVersion: "6.14.0",
+       code: "P2003"
+
+      at new PrismaClientKnownRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:24:1351)
+      at handleRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:7283)
+      at handleAndLogRequestError (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6608)
+      at request (/home/josh/projects/kTracker/backend/generated/prisma/runtime/library.js:124:6315)
+
+--> POST /api/tasks [31m500[0m 18ms
+<-- GET /api/weight
+<-- GET /api/workouts
+--> GET /api/weight [32m200[0m 5ms
+--> GET /api/workouts [32m200[0m 4ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 17ms
+<-- POST /api/auth/login
+--> POST /api/auth/login [32m200[0m 233ms
+<-- GET /api/weight
+<-- GET /api/workouts
+--> GET /api/weight [32m200[0m 3ms
+<-- GET /api/tasks
+--> GET /api/workouts [32m200[0m 5ms
+--> GET /api/tasks [32m200[0m 3ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- POST /api/tasks
+--> POST /api/tasks [32m201[0m 44ms
+<-- GET /api/weight
+<-- GET /api/workouts
+<-- GET /api/tasks
+--> GET /api/weight [32m200[0m 8ms
+--> GET /api/workouts [32m200[0m 6ms
+--> GET /api/tasks [32m200[0m 3ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 3ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- POST /api/tasks
+--> POST /api/tasks [32m201[0m 32ms
+<-- GET /api/weight
+<-- GET /api/tasks
+--> GET /api/weight [32m200[0m 7ms
+<-- GET /api/workouts
+--> GET /api/tasks [32m200[0m 12ms
+--> GET /api/workouts [32m200[0m 11ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 3ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 5ms

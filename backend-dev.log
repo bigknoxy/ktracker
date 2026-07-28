@@ -1,0 +1,109 @@
+Users routes loaded!
+Weight routes loaded!
+Workouts routes loaded!
+Tasks routes loaded!
+Started development server: http://localhost:3000
+<-- GET /health
+--> GET /health [32m200[0m 2ms
+<-- POST /api/auth/register
+Starting registration request
+Validated data: {
+  username: "manualtest123",
+  email: "manualtest123@example.com",
+  password: "[HIDDEN]",
+}
+--> POST /api/auth/register [32m200[0m 225ms
+<-- GET /api/workouts
+<-- GET /api/weight
+<-- GET /api/tasks
+--> GET /api/workouts [32m200[0m 8ms
+--> GET /api/weight [32m200[0m 4ms
+<-- GET /api/workouts
+--> GET /api/tasks [32m200[0m 8ms
+<-- GET /api/weight
+--> GET /api/workouts [32m200[0m 3ms
+--> GET /api/weight [32m200[0m 1ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 5ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 37ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 6ms
+<-- POST /api/tasks
+--> POST /api/tasks [32m201[0m 19ms
+<-- POST /api/auth/login
+--> POST /api/auth/login [32m200[0m 230ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 4ms
+<-- GET /api/tasks
+<-- GET /api/workouts
+<-- GET /api/weight
+--> GET /api/workouts [32m200[0m 16ms
+--> GET /api/tasks [32m200[0m 21ms
+<-- GET /api/workouts
+<-- GET /api/tasks
+--> GET /api/weight [32m200[0m 22ms
+--> GET /api/workouts [32m200[0m 12ms
+--> GET /api/tasks [32m200[0m 15ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 4ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 10ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 1ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 2ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 3ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 3ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 4ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 3ms
+<-- POST /api/weight
+--> POST /api/weight [32m201[0m 55ms
+<-- POST /api/weight
+--> POST /api/weight [32m201[0m 12ms
+<-- POST /api/weight
+--> POST /api/weight [32m201[0m 12ms
+<-- GET /api/weight
+<-- GET /api/workouts
+<-- GET /api/tasks
+--> GET /api/weight [32m200[0m 6ms
+--> GET /api/workouts [32m200[0m 4ms
+--> GET /api/tasks [32m200[0m 4ms
+<-- GET /api/weight
+<-- GET /api/workouts
+--> GET /api/weight [32m200[0m 5ms
+--> GET /api/workouts [32m200[0m 4ms
+<-- GET /api/tasks
+--> GET /api/tasks [32m200[0m 5ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 66ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 12ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 4ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 3ms
+<-- GET /api/workouts
+--> GET /api/workouts [32m200[0m 14ms
+<-- GET /api/workouts
+--> GET /api/workouts [32m200[0m 5ms
+<-- GET /api/workouts
+--> GET /api/workouts [32m200[0m 3ms
+<-- GET /api/workouts
+--> GET /api/workouts [32m200[0m 6ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 4ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 3ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 1ms
+<-- GET /api/weight
+--> GET /api/weight [32m200[0m 2ms
