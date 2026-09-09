@@ -30,5 +30,8 @@
     "jsonwebtoken": "^9.0.3",
     "prisma": "^8.0.0-rc.13",
     "zod": "^4.5.4"
+  },
+  "overrides": {
+    "hono": ">=4.12.25"
   }
 }
